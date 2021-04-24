@@ -32,7 +32,7 @@ object Main extends App {
   private val inSource: Source[String, NotUsed] = Source.fromIterator(() => {
     source._2.close()
     source._1
-  }).drop(1)
+  })
 
   private val printing = Sink.foreach[Map[Int, Set[String]]] { x =>
     x.map(key => s"${key._1} -> [${key._2.mkString(",")}]")
